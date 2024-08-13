@@ -1,0 +1,2 @@
+// 4-match
+db.school.find({name: "Holberton school"})
