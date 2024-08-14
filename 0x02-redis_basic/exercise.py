@@ -32,3 +32,18 @@ class Cache:
             return fn(data)
 
         return (data)
+
+    def get_str(self, key: str) -> str:
+        """ .... """
+        data = self.get(key,
+                        lambda x: x.decode('utf-8')
+                        if isinstance(x, bytes)
+                        else str(x))
+        return str(data)
+
+    def get_int(self, key: str) -> Union[int, str, None]:
+        """ .... """
+        data = self.get(key,
+                        lambda x: int(x) if x.isdigit() else None)
+
+        return data
